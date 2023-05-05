@@ -10,11 +10,20 @@ namespace Baker
     {
       Console.WriteLine("Welcome to...");
       Console.WriteLine($"{Banner.Welcome}");
+      Console.WriteLine("MENU");
+      Console.WriteLine("Bread $5");
+      Console.WriteLine("Buy 2 loaves, get 1 free");
+      Console.WriteLine("Pastries $2");
+      Console.WriteLine("Buy 4, get 1 free");
       Console.WriteLine("Place an order? (y/n)");
       string input = Console.ReadLine();
       if (input == "y")
       {
         Order();
+      }
+      else
+      {
+        Console.WriteLine($"{Banner.Bye}");
       }
     }
     static void Order()
