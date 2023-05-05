@@ -2,8 +2,18 @@ namespace Baker.Models
 {
   public class Bread
   {
-    private int _loafPrice = 5;
+    private static int _loafPrice = 5;
     private int _orderAmount;
+    public int OrderAmount
+    {
+      get { return _orderAmount; }
+      set { _orderAmount = value; }
+    }
+    public int Total = 0;
+    public Bread()
+    {
+
+    }
     public Bread(int orderAmount)
     {
       _orderAmount = orderAmount;
@@ -18,19 +28,19 @@ namespace Baker.Models
     }
     public int CalculateTotal() 
     {
-      int total = 0;
+      // int total = 0;
       for(int i = 0; i <=_orderAmount; i++)
       {
         if(i % 3 != 0)
         {
-          total += 5;
+          Total += 5;
         }
         else
         {
-          total += 0;
+          Total += 0;
         }
       }
-      return total;
+      return Total;
     }
   }
 }
