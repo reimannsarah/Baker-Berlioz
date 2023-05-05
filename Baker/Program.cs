@@ -14,31 +14,39 @@ namespace Baker
       string input = Console.ReadLine();
       if (input == "y")
       {
-        string choice = PlaceOrder();
+        string choice = ChooseItem();
         if (choice == "bread")
         {
           Console.WriteLine($"Your total comes to: ${BreadOrder()}");
+          Console.WriteLine("Would you like to order anything else? (y/n)");
+          string orderMore = Console.ReadLine();
+          if (orderMore == "y")
+          {
+            ChooseItem();
+          }
         }
         else if (choice == "pastry")
         {
           Console.WriteLine($"Your total comes to ${PastryOrder()}");
-        }
-        else
-        {
-          Console.WriteLine("Please choose from the listed options");
-          PlaceOrder();
+          Console.WriteLine("Would you like to order anything else? (y/n)");
+          string orderMore = Console.ReadLine();
+          if (orderMore == "y")
+          {
+            ChooseItem();
+          }
         }
       }
-      // else
-      // {
-      //   Console.WriteLine("Goodbye!");
-      // }
-      static string PlaceOrder()
+      else
       {
-      Console.WriteLine("What sounds good?");
-      Console.WriteLine("Bread");
-      Console.WriteLine("Pastry");
-      return Console.ReadLine().ToLower();
+        Console.WriteLine("Goodbye!");
+      }
+      static string ChooseItem()
+      {
+        Console.WriteLine("What sounds good?");
+        Console.WriteLine("Bread");
+        Console.WriteLine("Pastry");
+        string answer = Console.ReadLine().ToLower();
+        return answer;
       }
       // if(choice == "bread")
       // {
