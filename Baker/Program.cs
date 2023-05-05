@@ -19,71 +19,34 @@ namespace Baker
       string input = Console.ReadLine();
       if (input == "y")
       {
-        int orderTotal = 0;
-        int total = Order();
-        Console.WriteLine($"Your order comes to ${orderTotal += total}");
-        Console.WriteLine("Would you like to order more? (y/n)");
-        string orderMore = Console.ReadLine();
-        if (orderMore == "y")
-        {
-          Console.WriteLine($"Your order comes to: ${Order() + total}");
-        }
-      }
-      else
-      {
-        Console.WriteLine($"{Banner.Bye}");
+        int orderTotal = Order();
+        Console.WriteLine($"Your order comes to ${orderTotal}");
       }
     }
     static int Order()
     {
-      string item = ChooseItem();
-      int amount = HowMany(item);
-      if (item == "bread")
-      {
-        Bread breadOrder = new Bread(amount);
-        breadOrder.CalculateTotal();
-        return breadOrder.Total;
-      }
-      else if (item == "pastry")
-      {
-        Pastry pastryOrder = new Pastry(amount);
-        pastryOrder.CalculateTotal();
-        return pastryOrder.Total;
-      }
-      else
-      {
-        return 0;
-      }
-    }
-    static string ChooseItem()
-    {
+      int orderTotal = 0;
+      Bread breadOrder = new Bread();
+      Pastry pastryOrder = new Pastry();
       Console.WriteLine("What sounds good?");
       Console.WriteLine("Bread");
       Console.WriteLine("Pastry");
       string choice = Console.ReadLine().ToLower();
-      return choice;
+      Console.WriteLine("How many?");
+      int amount = int.Parse(Console.ReadLine());
+      if (choice == "bread")
+      {
+        breadOrder.OrderAmount = amount;
+        breadOrder.CalculateTotal();
+        orderTotal += breadOrder.Total;
+      }
+      else if (choice == "pastry")
+      {
+        pastryOrder.OrderAmount = amount;
+        pastryOrder.CalculateTotal();
+        orderTotal += pastryOrder.Total;
+      }
+      return orderTotal;
     }
-    static int HowMany(string selection)
-    {
-      if (selection == "bread")
-      {
-        Console.WriteLine("How many loaves would you like?");
-        return int.Parse(Console.ReadLine());
-      }
-      else if (selection == "pastry")
-      {
-        Console.WriteLine("How many pastries would you like?");
-        return int.Parse(Console.ReadLine());
-      }
-      else
-      {
-        Console.WriteLine("Please select from the available options");
-        return HowMany(selection);
-      }
-    }
-    // static void OrderMore(int currentTotal)
-    // {
-
-    // }
   }
 }
