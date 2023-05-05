@@ -18,7 +18,7 @@ namespace Baker.Tests
     {
       int expected = 4;
       Bread breadOrder = new Bread(4);
-      Assert.AreEqual(expected, breadOrder.GetOrderAmount());
+      Assert.AreEqual(expected, breadOrder.OrderAmount);
     }
     [TestMethod]
     public void CalculateTotal_ReturnsTotalPriceBasedOnInputtedAmount_Int()
