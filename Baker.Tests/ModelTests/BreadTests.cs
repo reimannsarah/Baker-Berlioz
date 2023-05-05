@@ -16,10 +16,16 @@ namespace Baker.Tests
     [TestMethod]
     public void Bread_CreatesBreadWithPriceAndNumberOfLoaves_Bread()
     {
-      int orderAmount = 4;
       int expected = 4;
-      Bread breadOrder = new Bread(orderAmount);
+      Bread breadOrder = new Bread(4);
       Assert.AreEqual(expected, breadOrder.GetOrderAmount());
+    }
+    [TestMethod]
+    public void CalculateTotal_ReturnsTotalPriceBasedOnInputtedAmount_Int()
+    {
+      int expected = 20;
+      Bread breadOrder = new Bread(6);
+      Assert.AreEqual(expected, breadOrder.CalculateTotal());
     }
   }
 }
