@@ -19,5 +19,12 @@ namespace Baker.Tests
       Pastry pastryOrder = new Pastry(4);
       Assert.AreEqual(expected, pastryOrder.GetOrderAmount());
     }
+    [TestMethod]
+    public void CalculateTotal_ReturnsOrderPriceUsingInputtedOrderAmount_Int()
+    {
+      int expected = 12;
+      Pastry pastryOrder = new Pastry(8);
+      Assert.AreEqual(expected, pastryOrder.CalculateTotal());
+    }
   }
 }

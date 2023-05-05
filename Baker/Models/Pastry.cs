@@ -16,5 +16,21 @@ namespace Baker
     {
       return _orderAmount;
     }
+    public int CalculateTotal()
+    {
+      int total = 0;
+      for(int i = 1; i <= _orderAmount; i++)
+      {
+        if(i % 4 != 0)
+        {
+          total += 2;
+        }
+        else
+        {
+          total += 0;
+        }
+      }
+      return total;
+    }
   }
 }
