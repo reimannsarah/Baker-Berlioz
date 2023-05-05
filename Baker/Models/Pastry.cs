@@ -10,21 +10,10 @@ namespace Baker
       set { _orderAmount = value; }
     }
     public int Total = 0;
-    public Pastry()
-    {
-
-    }
+    public Pastry() {}
     public Pastry(int orderAmount)
     {
       _orderAmount = orderAmount;
-    }
-    public int GetPastryPrice()
-    {
-      return _pastryPrice;
-    }
-    public int GetOrderAmount()
-    {
-      return _orderAmount;
     }
     public int CalculateTotal()
     {
@@ -33,7 +22,7 @@ namespace Baker
       {
         if(i % 4 != 0)
         {
-          Total += 2;
+          Total += _pastryPrice;
         }
         else
         {
